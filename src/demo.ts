@@ -1,6 +1,7 @@
 (async ()=> {
   const myCart = [];
-  const products = [];
+
+  const products: { id: number; name: string }[] = [];
   const limit = 2;
 
   async function getProducts() {
@@ -13,11 +14,11 @@
   function getTotal() {
     let total = 0;
     for (let i = 0; i < products.length; i++) {
-      total += products[i];
+      total += products[i].id;
     }
     return total;
   }
-  function addProduct(index) {
+  function addProduct(index: number) {
     if (getTotal() <= limit) {
       myCart.push(products[index]);
     }
